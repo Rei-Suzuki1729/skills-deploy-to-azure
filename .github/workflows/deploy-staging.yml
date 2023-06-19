@@ -7,7 +7,7 @@ on:
 env:
   IMAGE_REGISTRY_URL: ghcr.io
   ###############################################
-  ### Replace <username> with GitHub username ###
+  ###  ###
   ###############################################
   DOCKER_IMAGE_NAME: Rei-Suzuki1729-azure-ttt
   AZURE_WEBAPP_NAME: Rei-Suzuki1729-ttt-app
@@ -24,7 +24,9 @@ jobs:
       - name: npm install and build webpack
         run: |
           npm install
+          npm audit fix --force
           npm run build
+          
       - uses: actions/upload-artifact@v3
         with:
           name: webpack artifacts
